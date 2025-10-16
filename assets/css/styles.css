@@ -1,0 +1,116 @@
+/* Step 1: super minimal, obvious color so you can verify CSS is loading */
+:root{
+  --bg: #f6fafc;          /* soft light blue */
+  --surface: #ffffff;
+  --text: #0f172a;        /* slate */
+  --muted: #475569;
+  --accent: #22c55e;      /* green buttons/outline */
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: light; }
+body {
+  margin: 0;
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.container { width: min(100%, 960px); margin-inline: auto; padding: 20px; }
+
+.site-header {
+  background: linear-gradient(180deg, #ffffff, #eef7ff);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo { margin: 0; font-size: clamp(28px, 4vw, 40px); }
+.tagline { margin: 6px 0 0; color: var(--muted); }
+
+.site-nav ul {
+  list-style: none; padding: 0; margin: 12px 0 0;
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.site-nav a {
+  display: inline-block; text-decoration: none; color: var(--text);
+  background: #ffffff; border: 1px solid #e5e7eb; padding: 8px 12px;
+  border-radius: 999px;
+}
+.site-nav a[aria-current="page"] {
+  outline: 2px solid var(--accent);
+  background: #f2fff7;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.06);
+}
+
+.site-footer {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 24px;
+}
+.site-footer p { color: var(--muted); }
+
+/* Step 2 additions */
+
+/* Center the h1 only on recipe pages */
+h1.title {
+  text-align: center;
+}
+
+/* Make all lists (ul and ol) a little neater */
+ul, ol {
+  background-color: white;
+  border: 2px solid green;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+
+/* Step 3 additions */
+
+/* Give h2 headings a bit of spacing */
+h2 {
+  color: purple;
+  margin-top: 30px;   /* space above the heading */
+  margin-bottom: 10px;/* space below the heading */
+}
+
+/* Make each list box stand out slightly */
+ul, ol {
+  background-color: white;
+  border: 2px solid green;
+  border-radius: 8px;
+  padding: 10px 20px;  /* space inside the box */
+  margin: 10px 0;      /* space outside the box (top & bottom) */
+}
+
+/* Add a gentle gap below paragraphs */
+p {
+  margin-bottom: 20px;
+}
+
+/* Step 4 – Font styling and color theme for cookie page */
+
+/* A fun serif font for all h1 and h2 headings */
+h1, h2 {
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+/* A slightly softer color for h2 on this page */
+h2 {
+  color: chocolate;
+}
+
+/* Optional: make links brown instead of blue for variety */
+a {
+  color: saddlebrown;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
