@@ -113,4 +113,17 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Keep footer at the very bottom of short pages */
+html, body {
+  height: 100%;
+}
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer, footer {
+  margin-top: auto; /* pushes footer down */
+}
+/* End of styles.css */
