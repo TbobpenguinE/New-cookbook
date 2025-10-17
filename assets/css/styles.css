@@ -1,4 +1,12 @@
 /* Step 1: super minimal, obvious color so you can verify CSS is loading */
+/* ===============================
+   Basic theme + modern CSS bits
+   ===============================
+
+   :root defines CSS "variables" (custom properties) you can reuse.
+   Use them later with var(--name). Change once here → updates everywhere.
+   I think this is a nice feature of modern CSS.
+*/
 :root{
   --bg: #f6fafc;          /* soft light blue */
   --surface: #ffffff;
@@ -10,6 +18,8 @@
 
 * { box-sizing: border-box; }
 html { color-scheme: light; }
+
+/* Use the variables with var(--name). This sets the page background + text. */
 body {
   margin: 0;
   font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
@@ -17,16 +27,34 @@ body {
   background: var(--bg);
 }
 
+
+/* min(100%, 960px) = use the smaller of 100% width OR 960px
+   → Full width on phones, capped at 960px on large screens. */
 .container { width: min(100%, 960px); margin-inline: auto; padding: 20px; }
 
+/* ================
+   Header styles
+   ================
+
+   linear-gradient(180deg, #ffffff, #eef7ff)
+   = A top→bottom (180°) blend from white to very pale blue.
+   Just visual polish instead of flat color.
+*/
 .site-header {
   background: linear-gradient(180deg, #ffffff, #eef7ff);
   border-bottom: 1px solid #e5e7eb;
 }
 
+/* clamp(min, preferred, max)
+   = Responsive sizing that grows with screen but stays in safe bounds.
+   28px (min) ← 4vw (preferred) → 40px (max)
+   To put it simply: this allows for flexible, responsive resizing.
+*/
 .logo { margin: 0; font-size: clamp(28px, 4vw, 40px); }
 .tagline { margin: 6px 0 0; color: var(--muted); }
 
+/* aria-current="page" is in the HTML — this just styles the “current page” link.
+   Using the --accent variable so you can theme it easily. */
 .site-nav ul {
   list-style: none; padding: 0; margin: 12px 0 0;
   display: flex; flex-wrap: wrap; gap: 10px;
@@ -41,6 +69,11 @@ body {
   background: #f2fff7;
 }
 
+/* ============
+   Card styles
+   ============
+   rgba(r, g, b, a) = color with transparency (alpha).
+   Here it’s a very soft, subtle shadow (6% opaque near-black). */
 .card {
   background: var(--surface);
   border: 1px solid #e5e7eb;
@@ -49,10 +82,19 @@ body {
   box-shadow: 0 8px 24px rgba(2, 6, 23, 0.06);
 }
 
+/* ==========
+   Footer
+   ========== */
 .site-footer {
   border-top: 1px solid #e5e7eb;
   margin-top: 24px;
 }
+
+/* ============================
+   “Sticky bottom” on short pages
+   (Keeps footer at screen bottom when content is short;
+    does NOT make it fixed while scrolling.)
+=============================== */
 .site-footer p { color: var(--muted); }
 
 /* Step 2 additions */
